@@ -113,8 +113,7 @@ totalSteps <- activityData[,c("steps", "date")] %>%
 ```
 2. Make a histogram of the total number of steps taken each day.  Use ggplot.
 
-```{r , echo=TRUE}
-###```{r histogram of the total number of steps taken each day, echo=TRUE}
+```{r Histogram Total Steps, echo=TRUE}
 g <- ggplot(totalSteps, aes(steps))
 g <- g + geom_histogram(fill ="blue", binwidth = 1000) +
       guides(fill = F) +
@@ -149,7 +148,7 @@ meanStepsPerInterval <- activityData[,c("steps", "interval")] %>%
 
 ```
 Use ggplot for the making the time series plot.
-```{r Time Series Plot Average Number of Steps for each 5 minute interval, echo=TRUE}
+```{r Time Series Plot, echo=TRUE}
 g <- ggplot(meanStepsPerInterval, aes(x=interval, y=mean_steps))
 g <- g + geom_line(color ="blue") +
       guides(fill = F) +
@@ -213,7 +212,7 @@ head(activityDataImpute, 10)
 
 4a. Impute - Histogram of the total number of steps taken each day with missing steps filled in using mean steps per day.
     The histogram shows that the 0 step increased in frequency as there was data where the number of steps on given day is NA for all intervals and we assigned them with 0 steps.
-```{r Impute histogram of the total number of steps taken each day, echo=TRUE}
+```{r Impute histogram , echo=TRUE}
 totalStepsImpute <- activityDataImpute[,c("steps", "date")] %>% 
                     filter(!is.na(steps)) %>%
                     group_by(date) %>%
@@ -233,7 +232,7 @@ print(g)
 4a. Non-Impute and Impute - Histogram of the total number of steps taken each day to quickly show the comparison.
     The result shows that using the mean affected the total number of steps taken per day.
 
-```{r Non-Impute Impute histogram of the total number of steps taken each day, echo=TRUE}
+```{r Non-Impute Impute histogram, echo=TRUE}
 gCombined <- ggplot() +
       geom_histogram(data=totalStepsImpute, aes(steps), fill ="green", binwidth = 1000, show.legend = TRUE) +
       geom_histogram(data=totalSteps, aes(steps), fill ="blue", binwidth = 1000, show.legend = TRUE) +
@@ -283,7 +282,7 @@ meanStepsPerIntervalDayOfWeekType <- activityDataImputeDow[,c("steps", "interval
 
 ```
 Use ggplot for the making the time series plot.
-```{r Time Series Plot Average Number of Steps for each 5 minute interval by day of week type, echo=TRUE}
+```{r Time Series Plot Week Type, echo=TRUE}
 g <- ggplot(activityDataImputeDow, aes(x =interval, y=steps, colour = day_of_week_type))
 g <- g + geom_line() +
       facet_grid(day_of_week_type ~ .) +

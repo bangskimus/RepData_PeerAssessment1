@@ -250,8 +250,7 @@ activityData$intervalTimeFormat &lt;- NULL</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li>Make a histogram of the total number of steps taken each day. Use ggplot.</li>
 </ol>
-<pre class="r"><code>###```{r histogram of the total number of steps taken each day, echo=TRUE}
-g &lt;- ggplot(totalSteps, aes(steps))
+<pre class="r"><code>g &lt;- ggplot(totalSteps, aes(steps))
 g &lt;- g + geom_histogram(fill =&quot;blue&quot;, binwidth = 1000) +
       guides(fill = F) +
       xlab(&quot;Steps per Day&quot;) +

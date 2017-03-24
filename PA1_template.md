@@ -198,7 +198,7 @@ g <- g + geom_histogram(fill ="blue", binwidth = 1000) +
 print(g)
 ```
 
-![](PA1_template_files/figure-html/histogram of the total number of steps taken each day-1.png)<!-- -->
+![](./PA1_template_files/figure-html/histogram of the total number of steps taken each day-1.png)<!-- -->
 
 3. Calculate and report the mean and median of the total number of steps taken per day
 
@@ -257,7 +257,7 @@ g <- g + geom_line(color ="blue") +
 print(g)
 ```
 
-![](PA1_template_files/figure-html/Time Series Plot Average Number of Steps for each 5 minute interval-1.png)<!-- -->
+![](./PA1_template_files/figure-html/Time Series Plot Average Number of Steps for each 5 minute interval-1.png)<!-- -->
 2. Using which.max, find the 5 minute interval with the maximum number of average steps.
 
 
@@ -400,7 +400,7 @@ g <- g + geom_histogram(fill ="green", binwidth = 1000) +
 print(g)
 ```
 
-![](PA1_template_files/figure-html/Impute histogram of the total number of steps taken each day-1.png)<!-- -->
+![](./PA1_template_files/figure-html/Impute histogram of the total number of steps taken each day-1.png)<!-- -->
 4a. Non-Impute and Impute - Histogram of the total number of steps taken each day to quickly show the comparison.
     The result shows that using the mean affected the total number of steps taken per day.
 
@@ -417,7 +417,7 @@ gCombined <- ggplot() +
 print(gCombined)
 ```
 
-![](PA1_template_files/figure-html/Non-Impute Impute histogram of the total number of steps taken each day-1.png)<!-- -->
+![](./PA1_template_files/figure-html/Non-Impute Impute histogram of the total number of steps taken each day-1.png)<!-- -->
 
 4b. Impute - Calculate and report the mean and median of the total number of steps taken per day
 
@@ -518,6 +518,6 @@ g <- g + geom_line() +
 print(g)
 ```
 
-![](PA1_template_files/figure-html/Time Series Plot Average Number of Steps for each 5 minute interval by day of week type-1.png)<!-- -->
+![](./PA1_template_files/figure-html/Time Series Plot Average Number of Steps for each 5 minute interval by day of week type-1.png)<!-- -->
 
 The plot shows that filling in the missing data with the average steps per interval increased the number of data points and there are more steps being taken during around the 600 and 900 intervals (6:00 AM to 9:00 AM ) during the weekdays.  This is probably due to the reason that people are waking up earlier during the weekday and going to work as compared to sleeping in durinng the weekend.

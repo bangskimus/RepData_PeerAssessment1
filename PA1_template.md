@@ -190,6 +190,7 @@ totalSteps <- activityData[,c("steps", "date")] %>%
 
 
 ```r
+###```{r Histogram Total Steps, echo=TRUE}
 g <- ggplot(totalSteps, aes(steps))
 g <- g + geom_histogram(fill ="blue", binwidth = 1000) +
       guides(fill = F) +
@@ -200,7 +201,7 @@ g <- g + geom_histogram(fill ="blue", binwidth = 1000) +
 print(g)
 ```
 
-![](PA1_template_figures/Histogram Total Steps-1.png)<!-- -->
+![](PA1_template_figures/unnamed-chunk-1-1.png)<!-- -->
 
 3. Calculate and report the mean and median of the total number of steps taken per day
 
@@ -249,6 +250,7 @@ meanStepsPerInterval <- activityData[,c("steps", "interval")] %>%
 Use ggplot for the making the time series plot.
 
 ```r
+###```{r Time Series Plot, echo=TRUE}
 g <- ggplot(meanStepsPerInterval, aes(x=interval, y=mean_steps))
 g <- g + geom_line(color ="blue") +
       guides(fill = F) +
@@ -259,7 +261,7 @@ g <- g + geom_line(color ="blue") +
 print(g)
 ```
 
-![](PA1_template_figures/Time Series Plot-1.png)<!-- -->
+![](PA1_template_figures/unnamed-chunk-2-1.png)<!-- -->
 2. Using which.max, find the 5 minute interval with the maximum number of average steps.
 
 
@@ -367,6 +369,7 @@ head(activityDataImpute, 10)
     The histogram shows that the 0 step increased in frequency as there was data where the number of steps on given day is NA for all intervals and we assigned them with 0 steps.
 
 ```r
+###```{r Impute histogram, echo=TRUE}
 totalStepsImpute <- activityDataImpute[,c("steps", "date")] %>% 
                     filter(!is.na(steps)) %>%
                     group_by(date) %>%
@@ -402,12 +405,13 @@ g <- g + geom_histogram(fill ="green", binwidth = 1000) +
 print(g)
 ```
 
-![](PA1_template_figures/Impute histogram -1.png)<!-- -->
+![](PA1_template_figures/unnamed-chunk-3-1.png)<!-- -->
 4a. Non-Impute and Impute - Histogram of the total number of steps taken each day to quickly show the comparison.
     The result shows that using the mean affected the total number of steps taken per day.
 
 
 ```r
+###```{r Non-Impute Impute histogram, echo=TRUE}
 gCombined <- ggplot() +
       geom_histogram(data=totalStepsImpute, aes(steps), fill ="green", binwidth = 1000, show.legend = TRUE) +
       geom_histogram(data=totalSteps, aes(steps), fill ="blue", binwidth = 1000, show.legend = TRUE) +
@@ -419,7 +423,7 @@ gCombined <- ggplot() +
 print(gCombined)
 ```
 
-![](PA1_template_figures/Non-Impute Impute histogram-1.png)<!-- -->
+![](PA1_template_figures/unnamed-chunk-4-1.png)<!-- -->
 
 4b. Impute - Calculate and report the mean and median of the total number of steps taken per day
 
@@ -509,6 +513,7 @@ meanStepsPerIntervalDayOfWeekType <- activityDataImputeDow[,c("steps", "interval
 Use ggplot for the making the time series plot.
 
 ```r
+###```{r Time Series Plot Week Type, echo=TRUE}
 g <- ggplot(activityDataImputeDow, aes(x =interval, y=steps, colour = day_of_week_type))
 g <- g + geom_line() +
       facet_grid(day_of_week_type ~ .) +
@@ -520,6 +525,6 @@ g <- g + geom_line() +
 print(g)
 ```
 
-![](PA1_template_figures/Time Series Plot Week Type-1.png)<!-- -->
+![](PA1_template_figures/unnamed-chunk-5-1.png)<!-- -->
 
 The plot shows that filling in the missing data with the average steps per interval increased the number of data points and there are more steps being taken during around the 600 and 900 intervals (6:00 AM to 9:00 AM ) during the weekdays.  This is probably due to the reason that people are waking up earlier during the weekday and going to work as compared to sleeping in durinng the weekend.

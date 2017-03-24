@@ -1,5 +1,5 @@
 ---
-title: "Reproducible Research: Peer Assessment #1"
+title: "Reproducible Research: Peer Assessment 1"
 output: 
   html_document:
     keep_md: true
@@ -102,7 +102,7 @@ For this part of the assignment, you can ignore the missing values in the datase
 ### Result
 1. Calculate the total number of steps taken per day using dplyr and grouping by the date column. Note that using tapply and doing a sum shows 0 steps for 2012-10-01 and other dates. 
 
-```{r Calculate otal Number of Steps Per Day, echo=TRUE}
+```{r Calculate Total Number of Steps Per Day, echo=TRUE}
 
 totalSteps <- activityData[,c("steps", "date")] %>% 
               filter(!is.na(steps)) %>%
@@ -112,7 +112,9 @@ totalSteps <- activityData[,c("steps", "date")] %>%
 
 ```
 2. Make a histogram of the total number of steps taken each day.  Use ggplot.
-```{r histogram of the total number of steps taken each day, echo=TRUE}
+
+```{r , echo=TRUE}
+###```{r histogram of the total number of steps taken each day, echo=TRUE}
 g <- ggplot(totalSteps, aes(steps))
 g <- g + geom_histogram(fill ="blue", binwidth = 1000) +
       guides(fill = F) +
